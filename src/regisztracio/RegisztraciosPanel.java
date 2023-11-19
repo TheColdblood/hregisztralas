@@ -26,6 +26,7 @@ public class RegisztraciosPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngIgenNem = new javax.swing.ButtonGroup();
         btnReg = new javax.swing.JButton();
         chbElfogad = new javax.swing.JCheckBox();
         jpSzemelyes = new javax.swing.JPanel();
@@ -39,9 +40,14 @@ public class RegisztraciosPanel extends javax.swing.JFrame {
         jlTelefon2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jpSzemelyes1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jcbHadsereg = new javax.swing.JComboBox<>();
+        jlFegyver = new javax.swing.JLabel();
+        jrbIgen = new javax.swing.JRadioButton();
+        jrbNem = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
+        jpFeltoltes = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        btnFeltoltes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Südwind");
@@ -77,7 +83,7 @@ public class RegisztraciosPanel extends javax.swing.JFrame {
                     .addComponent(jtfNev)
                     .addComponent(jtfTelefon, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                     .addComponent(jtfTelefon2))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpSzemelyesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jlEmail, jlNev, jlTelefon});
@@ -106,15 +112,20 @@ public class RegisztraciosPanel extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setText("[kép]");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kepek/sudwind.png"))); // NOI18N
+        jLabel1.setToolTipText("");
 
         jpSzemelyes1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbHadsereg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Kérem Válasszon-", "RKKA", "WH", "MKH", "" }));
 
-        jRadioButton1.setText("jRadioButton1");
+        jlFegyver.setText("Van saját fegyvere?");
 
-        jRadioButton2.setText("jRadioButton2");
+        btngIgenNem.add(jrbIgen);
+        jrbIgen.setText("Igen");
+
+        btngIgenNem.add(jrbNem);
+        jrbNem.setText("Nem");
 
         javax.swing.GroupLayout jpSzemelyes1Layout = new javax.swing.GroupLayout(jpSzemelyes1);
         jpSzemelyes1.setLayout(jpSzemelyes1Layout);
@@ -123,23 +134,64 @@ public class RegisztraciosPanel extends javax.swing.JFrame {
             .addGroup(jpSzemelyes1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpSzemelyes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jpSzemelyes1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2)))
-                .addContainerGap())
+                        .addComponent(jcbHadsereg, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jpSzemelyes1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jlFegyver)
+                        .addGap(46, 46, 46)
+                        .addComponent(jrbIgen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jrbNem)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        jpSzemelyes1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jrbIgen, jrbNem});
+
         jpSzemelyes1Layout.setVerticalGroup(
             jpSzemelyes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpSzemelyes1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jcbHadsereg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpSzemelyes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
-                .addContainerGap(80, Short.MAX_VALUE))
+                    .addComponent(jlFegyver)
+                    .addComponent(jrbIgen)
+                    .addComponent(jrbNem))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Kérem töltse fel a következőket:\n- Személyi Igazolvány\n- Lakcímkártya\n- Adóigazolvány\n- TAJ Kártya\n- Hatástalanítási Igazolás (Ha van)");
+        jpFeltoltes.setViewportView(jTextArea1);
+
+        btnFeltoltes.setText("Feltöltés");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpFeltoltes, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnFeltoltes)
+                        .addGap(113, 113, 113)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpFeltoltes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnFeltoltes)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,37 +201,36 @@ public class RegisztraciosPanel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jpSzemelyes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jpSzemelyes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jpSzemelyes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(chbElfogad)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(63, 63, 63)
                                 .addComponent(btnReg)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(307, 307, 307)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(224, 224, 224))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpSzemelyes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel1)
-                        .addGap(92, 92, 92)
-                        .addComponent(jpSzemelyes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jpSzemelyes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(54, 54, 54)
+                        .addComponent(jpSzemelyes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(81, 81, 81)
                 .addComponent(btnReg, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chbElfogad)
@@ -225,18 +276,24 @@ public class RegisztraciosPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFeltoltes;
     private javax.swing.JButton btnReg;
+    private javax.swing.ButtonGroup btngIgenNem;
     private javax.swing.JCheckBox chbElfogad;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JComboBox<String> jcbHadsereg;
     private javax.swing.JLabel jlEmail;
+    private javax.swing.JLabel jlFegyver;
     private javax.swing.JLabel jlNev;
     private javax.swing.JLabel jlTelefon;
     private javax.swing.JLabel jlTelefon2;
+    private javax.swing.JScrollPane jpFeltoltes;
     private javax.swing.JPanel jpSzemelyes;
     private javax.swing.JPanel jpSzemelyes1;
+    private javax.swing.JRadioButton jrbIgen;
+    private javax.swing.JRadioButton jrbNem;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfNev;
     private javax.swing.JTextField jtfTelefon;
